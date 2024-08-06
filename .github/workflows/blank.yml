@@ -1,0 +1,26 @@
+name: Prisma Cloud IaC Scan - rfp
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  prisma_cloud_iac_scan:
+    runs-on: ubuntu-latest
+    name: Run Prisma Cloud IaC Scan to check Compliance
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run Scan on IaC .tf files in the repository
+        uses: bridgecrewio/checkov-action@master
+        id: iac-scan
+        env:
+          PRISMA_API_URL: https://api.prismacloud.io
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
+          directory: ./
+          framework: all  
+          quiet: true
+          use_enforcement_rules: true
