@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  PublicS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: s3-bucket-rfp-panw
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        IgnorePublicAcls: false
+        BlockPublicPolicy: false
+        RestrictPublicBuckets: false
+      Tags:
+        - Key: Project
+          Value: RFP_PANW
