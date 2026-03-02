@@ -19,7 +19,7 @@ jobs:
         env:
           PRISMA_API_URL: https://api.prismacloud.io
         with:
-          api-key: dfbdbe7a-1372-4bdf-a413-5454b092e607::NSkoe0ad9uile160M8xFBeSjdY8=
+          api-key: dfbdbe7a-1372-4bdf-a413-5454b092e607:NSkoe0ad9uile160M8xFBeSjdY8=
           directory: ./
           framework: all  
           quiet: true
